@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Ruta de prueba
 Route::get('/prueba', function() {
     return view('pruebas.prueba');
 });
