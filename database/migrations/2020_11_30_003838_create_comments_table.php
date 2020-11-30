@@ -14,18 +14,23 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigInteger('id');                                   // Id Autoincrementable
             
-            $table->bigInteger('ticket_id')->unsigned()->required();
-            $table->unsignedBigInteger('user_id')->required();
+            $table->bigInteger('ticket_id')->unsigned()->required();    // Llave Foranea
+            $table->unsignedBigInteger('user_id')->required();          // Llave Foranea
 
-            $table->longText('comment')->required();
+            $table->longText('comment')->required();                    // Comentarios
 
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->index();      // 
             $table->unsignedBigInteger('updated_by')->index();      // 
         
+            // Llaves Foraneas
+
+            // Llave foranea Comments - Tickets
             $table->foreign('ticket_id')->references('id')->on('tickets');
+
+            // Llave foranea Users - Tickets
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

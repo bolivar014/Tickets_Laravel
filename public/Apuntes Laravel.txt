@@ -4,12 +4,14 @@
 [*] Crear Migración
     php artisan make:migration create_[NameMigrations]_table
 
-[*] 
+[*] Ejecutar Migraciones:
+    php artisan migrate
 
-[*] 
+[*] Reiniciar Migraciones
+    php artisan migrate:rollback
 
-[*] 
-
+[*] Refresca las migraciones
+    php artisan migrate:refresh
 [*] 
 
 [*] 
