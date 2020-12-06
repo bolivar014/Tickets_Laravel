@@ -12,9 +12,12 @@
 
 [*] Refresca las migraciones
     php artisan migrate:refresh
-[*] 
 
-[*] 
+[*] Instalar NPM en laravel
+    npm install
+
+[*] Compilar en npm
+    npm run dev
 
 [*] 
 
