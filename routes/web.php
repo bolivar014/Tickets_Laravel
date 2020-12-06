@@ -13,13 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Ruta Default
 Route::get('/', function () {
     return view('test');
-    // return view('layouts.app');
-    // return view('welcome');
 });
 
 // Ruta de prueba
 Route::get('/prueba', function() {
     return view('pruebas.prueba');
 });
+
+
+// Gestión
+    // Tickets
+    // Asignación
+
+// Configuración
+    // Tipo 
+    // Prioridades
+
+// Reportes
+    // Creados
+    // Pendientes
+
+// Administración
+    // Usuarios
+    // Roles
+    // Permisos
