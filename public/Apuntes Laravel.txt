@@ -19,9 +19,12 @@
 [*] Compilar en npm
     npm run dev
 
-[*] 
+[*] Crear Controlador
+    php artisan make:controller NameController -r
+    php artisan make:controller RolUser\NameController -r
 
-[*] 
+[*] Crear Modelo en php
+    php artisan make:model Entities/RolUser/user
 
 [*] 
 
