@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();                   // usuarios unicos
             $table->string('password');                             // Password del cliente
             $table->timestamp('email_verified_at')->nullable();     // Email de confirmación
-            $table->timestamp('start_date')->nullable();            // Fecha Inicio
+            $table->timestamp('start_date')->required()->useCurrent = true;            // Fecha Inicio
             $table->timestamp('end_date')->nullable();              // Fecha Fin
             $table->rememberToken();
             $table->timestamps();

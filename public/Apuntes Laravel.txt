@@ -26,11 +26,16 @@
 [*] Crear Modelo en php
     php artisan make:model Entities/RolUser/user
 
-[*] 
+[*] Seeders
+    php artisan make:seeder NameTableSeeder
+    php artisan make:seeder UsersTableSeeder
 
-[*] 
+[*] Ejecutar seed
+    php artisan db:seed
 
-[*] 
+[*] Refrescar Seeders
+    php artisan migrate:refresh --seeder
+    php artisan migrate:fresh --seeder
 
 [*] 
 
