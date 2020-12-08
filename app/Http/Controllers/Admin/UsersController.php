@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+// Exporto Modelo a la clase User
+use App\Entities\Admin\User;
 
 class UsersController extends Controller
 {
@@ -14,8 +16,20 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.user.index');
+        /*     
+        // return view('admin.user.index', compact('rows'));
+        return view('admin.user.index')
+        ->with('rows', $rows)
+        ->with('rows2', $rows2);
+        */
+        
+        // Recupero los registros a nivel de db con paginación de 10 registros
+        $users = User::Paginate(10);
+   
+        // Retorno la vista con los 10 usuarios a paginar
+        return view('admin.user.index', [
+            'users' => $users,
+        ]);
     }
 
     /**

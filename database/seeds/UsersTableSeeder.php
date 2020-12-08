@@ -20,7 +20,8 @@ class UsersTableSeeder extends Seeder
         $root = new User();
         $root->email = 'root@ticket.com';
         $root->username = 'root';
-        $root->firstname = 'Root Jr';
+        $root->firstname = 'Root';
+        $root->lastname = 'Jr';
         $root->password = 'Password';
         $root->created_by = 1;
         $root->updated_by = 1;
@@ -31,6 +32,7 @@ class UsersTableSeeder extends Seeder
         $user->email = 'persona@sincorreo.com';
         $user->username = 'cjimen';
         $user->firstname = 'Carlos Alberto';
+        $user->lastname = 'Lopez';
         $user->password = bcrypt('Passw1234');
         $user->created_by = $root->id;
         $user->updated_by = 1;
@@ -38,7 +40,7 @@ class UsersTableSeeder extends Seeder
 
         // Ejecutamos Factory para creación de usuarios de prueba
         // factory(App\Entities\Admin\User::class, 10)->create();
-        factory(User::class, 10)->create([
+        factory(User::class, 100)->create([
             'created_by' => $user->id,
             'updated_by' => $user->id
         ]);

@@ -34,16 +34,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Pepito Perez</td>
-                                <td>Cliente@sincorreo.com</td>
-                                <td>Pepito123</td>
-                                <td>2020-03-12</td>
-                                <td>2021-06-12</td>
-                            </tr>
+                            @foreach($users as $user)
+                                <tr>
+                                    <td>{{ $user->firstname }} {{ $user->lastname }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->start_date }}</td>
+                                    <td>{{ $user->end_date }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Paginadores -->
+                {{ $users->render() }}
             </div>
             <!-- /.card-body -->
             
