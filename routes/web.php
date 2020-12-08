@@ -38,7 +38,11 @@ Route::get('/prueba', function() {
 
 // Administración
     // Usuarios
+        // Index
         Route::get('administracion/usuarios', 'Admin\UsersController@index');
+
+        // Show
+        Route::get('administracion/usuarios/{userId}', 'Admin\UsersController@show');
 
     // Roles
     // Permisos

@@ -61,7 +61,16 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        // Buscamos el ID del usuario en el modelo User
+        $user = User::where('id', $id)->first();
+
+        // Debugger
+        // dd($user);
+
+        // Retorno la vista con la información del usuario a procesar
+        return view('admin.user.show', [
+            'user' => $user
+        ]);
     }
 
     /**

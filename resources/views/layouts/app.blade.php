@@ -44,7 +44,9 @@
 
       <!-- Main content -->
       <section class="content">
-        @yield('content')
+        <div class="container-fluid">
+          @yield('content')
+        </div>
       </section>
       <!-- /.content -->
     </div>

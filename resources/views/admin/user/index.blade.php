@@ -36,7 +36,7 @@
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->firstname }} {{ $user->lastname }}</td>
+                                    <td><a href="usuarios/{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</a></td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->username }}</td>
                                     <td>{{ $user->start_date }}</td>
