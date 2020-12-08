@@ -13,6 +13,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // Limpiamos Tabla
+        User::truncate();
+
         // Creamos usuario Root por Defecto
         $root = new User();
         $root->email = 'root@ticket.com';
@@ -22,7 +25,6 @@ class UsersTableSeeder extends Seeder
         $root->created_by = 1;
         $root->updated_by = 1;
         $root->save();
-
         
         // Creamos usuario Root por Defecto
         $user = new User();
@@ -33,5 +35,12 @@ class UsersTableSeeder extends Seeder
         $user->created_by = $root->id;
         $user->updated_by = 1;
         $user->save();
+
+        // Ejecutamos Factory para creación de usuarios de prueba
+        // factory(App\Entities\Admin\User::class, 10)->create();
+        factory(User::class, 10)->create([
+            'created_by' => $user->id,
+            'updated_by' => $user->id
+        ]);
     }
 }

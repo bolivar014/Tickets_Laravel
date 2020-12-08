@@ -37,8 +37,11 @@
     php artisan migrate:refresh --seeder
     php artisan migrate:fresh --seeder
 
-[*] 
+[*] Documentación Faker
+    https://github.com/fzaninotto/Faker
 
+    Crear Factory
+    
 [*] 
 
 [*] 
