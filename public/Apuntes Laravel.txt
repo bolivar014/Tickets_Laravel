@@ -41,8 +41,10 @@
     https://github.com/fzaninotto/Faker
 
     Crear Factory
-    
-[*] 
+
+[*] Listar Rutas en laravel
+    php artisan route:list
+    php artisan r:l
 
 [*] 
 

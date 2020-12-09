@@ -59,13 +59,14 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         // Buscamos el ID del usuario en el modelo User
-        $user = User::where('id', $id)->first();
+        // $user = User::where('id', $id)->first();
 
+        // $user->link_edit = route('admin.user.show', $user->id);
         // Debugger
-        // dd($user);
+        //dd($user);
 
         // Retorno la vista con la información del usuario a procesar
         return view('admin.user.show', [

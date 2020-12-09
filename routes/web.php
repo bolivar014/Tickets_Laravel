@@ -39,10 +39,22 @@ Route::get('/prueba', function() {
 // Administración
     // Usuarios
         // Index
-        Route::get('administracion/usuarios', 'Admin\UsersController@index');
+        // Route::get('administracion/usuarios', 'Admin\UsersController@index')->name('admin.user.index');
 
         // Show
-        Route::get('administracion/usuarios/{userId}', 'Admin\UsersController@show');
+        // Route::get('administracion/usuarios/{userId}', 'Admin\UsersController@show')->name('admin.user.show');
+    
+        /*
+        // 
+        Route::group(['prefix' => 'administracion', 'namespace' => 'Admin'], function(){
+            Route::resource('users', 'UsersController');
+        });
+        */
 
+        // 
+        Route::prefix('administracion')->namespace('Admin')->name('admin.')->group(function(){
+            Route::resource('usuarios', 'UsersController')->names('user')->parameters(['usuarios' => 'user']);
+        });
+        
     // Roles
     // Permisos
