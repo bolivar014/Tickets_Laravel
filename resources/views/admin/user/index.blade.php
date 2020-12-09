@@ -18,6 +18,9 @@
                     <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
                         <i class="fas fa-times"></i>
                     </button>
+                    <a href="{{ route('admin.user.create') }}" title="Crear Usuario">
+                        <i class="fas fa-plus"></i>
+                    </a>
                 </div>
             </div>
             
@@ -49,6 +52,7 @@
 
                 <!-- Paginadores -->
                 {{ $users->render() }}
+                
             </div>
             <!-- /.card-body -->
             
