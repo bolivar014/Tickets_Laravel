@@ -287,29 +287,40 @@
                         <!-- /.tab-pane -->
 
                         <div class="tab-pane" id="settings">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="{{ route('admin.user.update', $user->id) }}" method="POST">
                                 <div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">Nombres:</label>
+                                    {{ csrf_field() }}
+                                    <!-- Tagg Method Patch -->
+                                    <input name="_method" type="hidden" value="PATCH" class="form-control">
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 col-form-label">First Name</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputName" placeholder="Nombres" value="{{ $user->firstname }}">
+                                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Nombres" value="{{ $user->firstname }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">Apellidos:</label>
+                                    <label for="inputName" class="col-sm-2 col-form-label">Last Name</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputName" placeholder="Apellidos" value="{{ $user->lastname }}">
+                                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellidos" value="{{ $user->lastname }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputEmail" class="col-sm-2 col-form-label">Correo:</label>
+                                    <label for="inputEmail" class="col-sm-2 col-form-label">E-mail</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" value="{{ $user->email }}">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ $user->email }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputName2" class="col-sm-2 col-form-label">Usuario:</label>
+                                    <label for="inputName2" class="col-sm-2 col-form-label">Username</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputName2" placeholder="Usuario" value="{{ $user->username }}">
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" value="{{ $user->username }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputName2" class="col-sm-2 col-form-label">Start Date</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" id="start_date" name="start_date" placeholder="Usuario" value="{{ substr($user->start_date, 0, 10) }}">
                                     </div>
                                 </div>
                                 <!--<div class="form-group row">

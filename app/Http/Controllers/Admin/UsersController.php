@@ -16,13 +16,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-        /*     
-        // return view('admin.user.index', compact('rows'));
-        return view('admin.user.index')
-        ->with('rows', $rows)
-        ->with('rows2', $rows2);
-        */
-        
         // Recupero los registros a nivel de db con paginación de 10 registros
         $users = User::Paginate(10);
    
@@ -53,23 +46,24 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // dd($request);
+        // Inicializo Nuevo Usuario
         $row = new User();
 
+        // Recupero valores desde los inputs del formulario Crear Usuario
         $row->firstname = $request->input('firstname');
         $row->lastname = $request->input('lastname');
         $row->username = $request->username;
         $row->email = $request->input('email');
         $row->password = bcrypt($request->username);
 
-        // 
+        // Inicializo Variables
         $row->created_by = 1;
         $row->updated_by = 1;
-        // 
+
+        // Ejecuto Guardado 
         $row->save();
 
-        // 
+        // Redirecciono a la vista del Usuario Nuevo
         return redirect()->route('admin.user.show', $row->id);
     }
 
@@ -100,7 +94,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         //
     }
@@ -112,9 +106,22 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        // dd($id, $request->all());
+
+        // Recupero valores desde el formulario
+        $user->firstname = $request['firstname'];
+        $user->lastname = $request['lastname'];
+        $user->email = $request['email'];
+        $user->username = $request['username'];
+        $user->start_date = $request['start_date'];
+
+        // Guardo cambios
+        $user->save();
+        
+        // 
+        return redirect()->route('admin.user.show', $user->id);
     }
 
     /**

@@ -46,7 +46,14 @@
     php artisan route:list
     php artisan r:l
 
-[*] 
+[*] Laravel Collective
+    https://github.com/StydeNet/html
+
+    Laravel 5.8 users:
+
+    Install by running composer require "styde/html=~1.7" or adding "styde/html": "~1.7" to your composer.json file and then running composer update.
+
+    php artisan vendor:publish --provider='Styde\Html\HtmlServiceProvider'
 
 [*] 
 
