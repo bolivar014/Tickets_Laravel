@@ -46,6 +46,18 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        // Validaciones del Formulario
+        $request->validate([
+            'firstname' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username'
+        ]);
+        
+        /*  
+        Esquema Requerir campo unico "unique:[NameTable],[ColumnTable]"
+        'username' => 'required|unique:users,username'
+        */
+
         // Inicializo Nuevo Usuario
         $row = new User();
 
@@ -109,6 +121,18 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
         // dd($id, $request->all());
+        
+        // Validaciones del Formulario
+        $request->validate([
+            'firstname' => 'required',
+            'email' => 'required|email|unique:users,email,'.$user->id.',id',
+            'username' => 'required|unique:users,username,'.$user->id.',id'
+        ]);
+
+        /*  
+        Esquema Excepciones en requerir campo unico "unique:[NameTable],[ColumnTable],'.$XXX->ColumnException.',ColumnException"
+        'username' => 'required|unique:users,username'
+        */
 
         // Recupero valores desde el formulario
         $user->firstname = $request['firstname'];
