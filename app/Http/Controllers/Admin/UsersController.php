@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // Exporto Modelo a la clase User
 use App\Entities\Admin\User;
+// Conecto con sus respectivos UserRequest
+use App\Http\Requests\Admin\StoreUserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 
 class UsersController extends Controller
 {
@@ -44,20 +47,8 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        // Validaciones del Formulario
-        $request->validate([
-            'firstname' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'username' => 'required|unique:users,username'
-        ]);
-        
-        /*  
-        Esquema Requerir campo unico "unique:[NameTable],[ColumnTable]"
-        'username' => 'required|unique:users,username'
-        */
-
         // Inicializo Nuevo Usuario
         $row = new User();
 
@@ -118,22 +109,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         // dd($id, $request->all());
-        
-        // Validaciones del Formulario
-        $request->validate([
-            'firstname' => 'required',
-            'email' => 'required|email|unique:users,email,'.$user->id.',id',
-            'username' => 'required|unique:users,username,'.$user->id.',id'
-        ]);
-
-        /*  
-        Esquema Excepciones en requerir campo unico "unique:[NameTable],[ColumnTable],'.$XXX->ColumnException.',ColumnException"
-        'username' => 'required|unique:users,username'
-        */
-
+     
         // Recupero valores desde el formulario
         $user->firstname = $request['firstname'];
         $user->lastname = $request['lastname'];
