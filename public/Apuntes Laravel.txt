@@ -67,7 +67,18 @@
 
     Los Helpers siempre se deben registrar en los providers...
     App\providers\AppServiceProvider -> register()
-[*] 
+
+[*] Autenticacion
+    php artisan make:auth
+
+    para error de limite de memoria, editamos el...
+    php.ini del servidor apache, buscamos el campo momery_limit. le asignamos:
+    momery_limit = -1
+
+    https://styde.net/paquete-laravel-ui-en-laravel-6/
+    1) composer require laravel/ui
+    2) php artisan ui vue --auth
+
 
 [*] 
 
