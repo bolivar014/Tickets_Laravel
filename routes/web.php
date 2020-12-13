@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Ruta Default
-Route::get('/', function () {
-    return view('test');
-});
+/*
+    // Ruta Default
+    Route::get('/', function () {
+        return view('home');
+    });
+*/
+Route::get('/', 'HomeController')->name('home');
 
 // Ruta de prueba
 Route::get('/prueba', function() {

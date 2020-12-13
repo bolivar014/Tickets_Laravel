@@ -96,7 +96,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-header">ADMINISTRACIÓN</li>
             <li class="nav-item">
-              <a href="../calendar.html" class="nav-link">
+              <a href="{{ route('admin.user.index') }}" class="nav-link {{ isRouteActive('admin.user') }}">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
                   Usuarios

@@ -55,10 +55,18 @@
 
     php artisan vendor:publish --provider='Styde\Html\HtmlServiceProvider'
 
-[*] 
+[*] FormRequest Laravel
+    php artisan make:request Admin/StoreUserRequest
 
-[*] 
+[*] Imprime la ruta actual en la cual nos encontramos
+    {{ Route::currentRouteName() }}
 
+    // helper active control de ruta actual
+    {{ Str::contains(Route::currentRouteName(), 'admin.user') ? 'active' : null }}
+    En caso que la vista actual contenga 'admin.user', retorna active, sino... null
+
+    Los Helpers siempre se deben registrar en los providers...
+    App\providers\AppServiceProvider -> register()
 [*] 
 
 [*] 
